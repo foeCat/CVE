@@ -18,20 +18,23 @@ A critical arbitrary file upload vulnerability exists in the product image uploa
 
 ### Analyse
 
-**vulnerability: Unrestricted File Upload**
+**Vulnerability: Unrestricted File Upload**
 
 ```php
+// Line 9: Check if file exists (no validation)
 if (file_exists("upload/" . $_FILES["image"]["name"]))
     {
     /* echo $_FILES["image"]["name"] . " already exists. "; */
     }
   else
     {
+    // Line 15-16: VULNERABLE! Upload file with original name, no type check
     move_uploaded_file($_FILES["image"]["tmp_name"],
     "upload/" . $_FILES["image"]["name"]);
     echo "Stored in: " . "upload/" . $_FILES["image"]["name"];
     }
 
+// Line 22-31: Store filename in database
 $image = $_FILES['image']['name'];
 
 $price = $_POST['price'];
@@ -40,6 +43,7 @@ $name = $_POST['name'];
 $serial = $_POST['serial'];
 $description = $_POST['description'];
 
+// Line 34-35: Also vulnerable to SQL injection
 mysql_query("INSERT INTO products (price, name, image, model, serial_no)
 VALUES('$price', '$name', '$image', '$model', '$serial')") or die(mysql_error());
 ```

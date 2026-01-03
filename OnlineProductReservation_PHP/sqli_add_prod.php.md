@@ -17,16 +17,40 @@ A critical SQL injection vulnerability exists in the product addition functional
 **Vulnerability: SQL Injection in INSERT Query**
 
 ```php
+// File upload section (lines 9-18) - also vulnerable to unrestricted file upload
+if (file_exists("upload/" . $_FILES["image"]["name"]))
+    {
+    /* echo $_FILES["image"]["name"] . " already exists. "; */
+    }
+  else
+    {
+    move_uploaded_file($_FILES["image"]["tmp_name"],
+    "upload/" . $_FILES["image"]["name"]);
+    echo "Stored in: " . "upload/" . $_FILES["image"]["name"];
+    }
+
+$image = $_FILES['image']['name'];
+
+// Line 24-28: User input from POST/GET without validation
 $price = $_POST['price'];
-$name = $_POST['name'];
 $model = $_POST['model'];
+$name = $_POST['name'];
 $serial = $_POST['serial'];
+$description = $_POST['description'];
+
+// Line 30-31: VULNERABLE! Direct concatenation into INSERT query
+mysql_query("INSERT INTO products (price, name, image, model, serial_no)
+VALUES('$price', '$name', '$image', '$model', '$serial')") or die(mysql_error());
+
+$id = mysql_query("SELECT * FROM products GROUP BY id ORDER BY id DESC LIMIT 1") or die(mysql_error());
+
+$p_id = mysql_fetch_array($id);
+
+$id = $p_id['id'] + 1;
 $cat = $_GET['cat'];
 
-mysql_query("INSERT INTO products (price, name, image, model, serial_no)
-VALUES('$price', '$name', '$image', '$model', '$serial')");
-
-mysql_query("INSERT into cat_prod (prod, cat) VALUES('$id', '$cat')");
+// Line 39: VULNERABLE! Second SQL injection point
+mysql_query("INSERT into cat_prod (prod, cat) VALUES('$id', '$cat')") or die(mysql_error());
 ```
 
 **Vulnerability Analysis**:

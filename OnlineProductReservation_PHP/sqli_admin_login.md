@@ -14,13 +14,27 @@ A critical SQL injection vulnerability exists in the administrator login functio
 
 ### Analyse
 
-**Vulnerability: SQL Injection**
+**Vulnerability: SQL Injection in Authentication**
 
 ```php
+// Line 7-8: User input from POST without validation
 $email = $_POST['emailadd'];
 $pass = $_POST['pass'];
 
+// Line 10: VULNERABLE! Direct concatenation into SELECT query
 $login = mysql_query("SELECT * FROM admin_login WHERE user_name = '$email' AND user_pass = '$pass'");
+
+$userlogin = mysql_fetch_array($login);
+
+// Line 14-18: Authentication bypass
+if($userlogin['user_name'] == $email )
+    {
+    $_SESSION['admin'] = $userlogin['admin_id'];
+    header("location: index.php");
+    }else{
+    header("location: err_log.php");
+    echo "username or password error";
+    }
 ```
 
 **Vulnerability Analysis**:
