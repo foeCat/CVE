@@ -54,6 +54,8 @@ sqlmap -u "http://localhost:8081/app/checkout/update.php" \
   --dump
 ```
 
+![1767458618705.png](https://youke3.picui.cn/s1/2026/01/04/6959470659e9d.png)
+
 **References**:
 - OWASP SQL Injection: https://owasp.org/www-community/attacks/SQL_Injection
 - CWE-89: https://cwe.mitre.org/data/definitions/89.html
