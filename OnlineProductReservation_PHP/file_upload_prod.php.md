@@ -3,7 +3,6 @@
 **Project**: Online Product Reservation System In PHP With Source Code
 
 **Vendor**: Source Code & Projects (code-projects.org)
-**Download Link**: https://code-projects.org/online-product-reservation-system-in-php-with-source-code/
 
 **Download Link**: https://code-projects.org/online-product-reservation-system-in-php-with-source-code/
 
