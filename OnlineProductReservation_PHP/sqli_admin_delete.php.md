@@ -19,9 +19,10 @@ A critical SQL injection vulnerability exists in the product deletion functional
 ```php
 include('../config/config.php');
 
+// Line 12: User input directly from POST without validation
 $id = $_POST['id'];
 
-// sending query
+// Line 16: Direct concatenation into DELETE query - VULNERABLE!
 mysql_query("DELETE FROM products WHERE id = '$id'") or die(mysql_error());
 
 /* 	header("Location: view_prod.php");  */
