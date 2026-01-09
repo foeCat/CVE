@@ -4,6 +4,8 @@
 
 **Vendor**: CRMEB (https://www.crmeb.com)
 
+**Project Repository**: https://github.com/crmeb/CRMEB.git
+
 **Vulnerable File**: `crmeb/app/api/controller/v1/LoginController.php`
 
 **Affected Version**: v5.6.3 and earlier (<= v5.6.3)
