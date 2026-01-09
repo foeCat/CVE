@@ -145,6 +145,10 @@ print(resp.json())
   }
 }
 ```
+[![1767975099880.png](https://youke3.picui.cn/s1/2026/01/10/69612898cac3f.png)](https://youke3.picui.cn/s1/2026/01/10/69612898cac3f.png)
+
+[![1767975114935.png](https://youke3.picui.cn/s1/2026/01/10/69612897c2bc3.png)](https://youke3.picui.cn/s1/2026/01/10/69612897c2bc3.png)
+
 
 ### POC 2: Batch Account Registration
 
@@ -189,6 +193,10 @@ for i in range(5):
 [+] Account 4: UID=9003, Nickname=jwt_hacker_3
 [+] Account 5: UID=9004, Nickname=jwt_hacker_4
 ```
+
+[![1767975215520.png](https://youke3.picui.cn/s1/2026/01/10/696128fb2d6bd.png)](https://youke3.picui.cn/s1/2026/01/10/696128fb2d6bd.png)
+
+[![1767975291292.png](https://youke3.picui.cn/s1/2026/01/10/696129471ddeb.png)](https://youke3.picui.cn/s1/2026/01/10/696129471ddeb.png)
 
 **Summary**:
 - **Success Rate**: 5/5 (100%)
