@@ -339,5 +339,4 @@ public function detail(Request $request, $uni)
 
 ## 致谢
 
-漏洞发现和报告：
-- 安全研究人员
+漏洞发现和报告：foeCat
